@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link rel="stylesheet" href="index.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        screens: {
+                            // Custom small breakpoint
+                            sm: "900px", // Default 2xl breakpoint
+                        },
+                    },
+                },
+            };
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>Frontend Mentor | News homepage</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body class="sm:p-12 p-4">
+        <nav class="flex justify-between items-center mb-5">
+            <svg width="65" height="40" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.016 39.2c.317 0 .574-.093.77-.28.196-.187.294-.457.294-.812v-1.82c0-.448.033-.84.098-1.176.065-.336.145-.663.238-.98l5.09-18.122 4.822 18.57c.112.384.193.682.243.895l.023.099c.047.215.07.453.07.714v1.82c0 .355.098.625.294.812.196.187.453.28.77.28h10.696c.299 0 .55-.093.756-.28.205-.187.308-.457.308-.812v-1.82c0-.373.023-.705.07-.994.047-.29.135-.677.266-1.162L54.04 7.224c.299-1.25.765-2.254 1.4-3.01.635-.756 1.363-1.311 2.184-1.666l.672-.308c.336-.168.574-.331.714-.49.14-.159.21-.369.21-.63 0-.336-.117-.607-.35-.812C58.637.103 58.287 0 57.82 0h-8.904c-.467 0-.817.103-1.05.308-.233.205-.35.476-.35.812 0 .261.06.471.182.63.121.159.313.303.574.434l.616.224c1.12.41 1.871.999 2.254 1.764s.453 1.661.21 2.688l-5.535 23.486-6.477-25.81c-.133-.58-.17-1.018-.11-1.31l.026-.104c.093-.29.317-.49.672-.602l1.232-.336c.299-.112.518-.257.658-.434a.986.986 0 0 0 .21-.63c0-.355-.112-.63-.336-.826C41.468.098 41.122 0 40.656 0H24.78c-.448 0-.789.098-1.022.294-.233.196-.35.471-.35.826 0 .224.06.415.182.574.121.159.322.294.602.406l1.176.42c.261.093.462.243.602.448.14.205.294.607.462 1.204l1.751 6.742-5.553 19.475L16.128 4.48c-.147-.49-.194-.898-.14-1.223l.028-.135c.093-.345.327-.574.7-.686l1.456-.336c.504-.168.756-.504.756-1.008 0-.336-.112-.602-.336-.798C18.368.098 18.022 0 17.556 0H1.344C.896 0 .56.098.336.294.112.49 0 .756 0 1.092c0 .224.056.434.168.63.112.196.29.35.532.462l1.232.392c.355.13.625.308.812.532.187.224.345.579.476 1.064l7.84 30.408c.112.43.191.751.238.966.047.215.07.462.07.742v1.82c0 .355.103.625.308.812.205.187.467.28.784.28h10.556Zm34.804.7c1.195 0 2.263-.29 3.206-.868a6.338 6.338 0 0 0 2.24-2.338c.55-.98.826-2.04.826-3.178 0-1.157-.275-2.212-.826-3.164a6.325 6.325 0 0 0-2.24-2.282c-.943-.57-2.011-.854-3.206-.854-1.157 0-2.207.285-3.15.854a6.325 6.325 0 0 0-2.24 2.282c-.55.952-.826 2.007-.826 3.164 0 1.139.275 2.198.826 3.178.55.98 1.297 1.76 2.24 2.338.943.579 1.993.868 3.15.868Z"
+                    fill="#00001A"
+                />
+            </svg>
+
+            <div class="w-10 h-10 sm:hidden">
+                <a
+                    class=""
+                    href="javascript:void(0);"
+                    id="hamburger"
+                    onclick="myFunction()"
+                >
+                    <svg
+                        class="sm:hidden"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                    >
+                        <path
+                            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <ul class="hidden sm:flex sm:gap-x-5">
+                <li>home</li>
+                <li>New</li>
+                <li>Popular</li>
+                <li>Trending</li>
+                <li>Categories</li>
+            </ul>
+        </nav>
+        <div
+            class="hidden fixed bg-black bg-opacity-50 z-30 top-0 right-0 h-screen w-screen"
+            id="side-div"
+        >
+            <div
+                class="transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col absolute right-0 w-2/4 h-full bg-white"
+                id="mobileNav"
+            >
+                <a
+                    href="javascript:void(0);"
+                    id="xBtn"
+                    onclick="myFunction()"
+                    class="text-black justify-end ml-auto mt-5 mb-16"
+                >
+                    <div class="w-10 h-10">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"
+                        >
+                            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                            />
+                        </svg>
+                    </div>
+                </a>
+                <ul
+                    class="px-10 flex flex-col gap-y-6 justify-between text-black"
+                >
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="flex">
+            <div
+                class="grid grid-cols-1 grid-flow-row-dense auto-rows-[250px] sm:grid-cols-3 sm:auto-rows-[250px] gap-2"
+            >
+                <div
+                    class="order-first sm:overflow-hidden sm:col-span-2 sm:bg-black sm:bg-contain sm:bg-no-repeat bg-cover bg-center bg-[url('/assets/images/image-web-3-mobile.jpg')] sm:bg-[url('/assets/images/image-web-3-desktop.jpg')]"
+                >
+                    <!-- <img
+                        src="./assets/images/image-web-3-desktop.jpg"
+                        class="w-full sm:h-auto h-auto"
+                        alt="smth"
+                    /> -->
+                </div>
+
+                <div
+                    class="px-5 py-6 flex flex-col justify-between bg-[#00001a] row-span-2"
+                >
+                    <h2 class="text-3xl text-[#e9ab53]">News</h2>
+                    <div class="w-full h-20 text-white">
+                        <h3 class="md:text-md text-lg text-bolder">
+                            Hydrogen VS Electric Cars
+                        </h3>
+                        <p class="text-[#c5c6ce] lg:text-md md:text-xs text-xs">
+                            Will hydrogen-fieled cars catch up to EVs?
+                        </p>
+                        <div class="mt-7 border border-1 border-[#bbb]"></div>
+                    </div>
+                    <div class="w-full h-20 text-white">
+                        <h3 class="text-lg md:text-md text-bolder">
+                            The Downsides of AI Artistry
+                        </h3>
+                        <p class="text-[#c5c6ce] lg:text-md md:text-xs text-xs">
+                            What are the possible adverse effects of on-demand
+                            AI image generation?
+                        </p>
+                        <div class="mt-7 border border-1 border-[#bbb]"></div>
+                    </div>
+                    <div class="w-full h-20 text-white">
+                        <h3 class="md:text-md text-lg text-bolder">
+                            Is VC Funding Drying Up?
+                        </h3>
+                        <p class="text-[#c5c6ce] lg:text-md md:text-xs text-xs">
+                            Private funding by VC firms is down 50% YOY. We take
+                            a look at what that means.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="-order-1 sm:order-none bg-white text-[#00001a] flex items-center justify-center"
+                >
+                    <h2
+                        class="md:text-5xl lg:text-7xl text-5xl text-center font-bold"
+                    >
+                        The Bright Future of Web 3.0?
+                    </h2>
+                </div>
+                <div
+                    class="-order-1 sm:order-none flex justify-start text-[#c5c6ce] flex-col"
+                >
+                    <p class="mt-8 mb-auto leading-8 lg:text-md md:text-xs">
+                        We dive into the next evolution of the web that claims
+                        to put the power of the platforms back into the hands of
+                        the people. But is it really fufilling its promise?
+                    </p>
+                    <button
+                        class="w-3/4 h-12 tracking-widest font-bold bg-[#f15e50] text-[#00001a] mb-auto"
+                    >
+                        Read More
+                    </button>
+                </div>
+                <div class="bg-white flex py-10">
+                    <div
+                        class="sm:w-4/5 w-4/5 h-full bg-red-500 bg-[url('/assets/images/image-retro-pcs.jpg')] bg-no-repeat bg-cover"
+                    ></div>
+                    <div class="flex flex-col justify-between ml-6">
+                        <h3 class="text-3xl sm:text-5xl text-[#f15e50]">01</h3>
+                        <h3 class="text-xl sm:text-2xl text-[#00001a]">
+                            Reviving Old Retro PCs
+                        </h3>
+                        <p class="sm:text-md text-sm text-[#c5c6ce]">
+                            What happens when old pcs are given modern upgrades?
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white flex py-10">
+                    <div
+                        class="sm:w-4/5 w-4/5 h-full bg-red-500 bg-[url('/assets/images/image-top-laptops.jpg')] bg-no-repeat bg-cover"
+                    ></div>
+                    <div class="flex flex-col justify-between ml-6">
+                        <h3 class="text-3xl sm:text-5xl text-[#f15e50]">02</h3>
+                        <h3 class="text-xl sm:text-2xl text-[#00001a]">
+                            Top 10 Laptops of 2022
+                        </h3>
+                        <p class="sm:text-md text-sm text-[#c5c6ce]">
+                            Our best picks for various needs and budgets.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white flex py-10">
+                    <div
+                        class="sm:w-4/5 w-4/5 h-full bg-red-500 bg-[url('/assets/images/image-gaming-growth.jpg')] bg-no-repeat bg-cover"
+                    ></div>
+                    <div class="flex flex-col justify-between ml-6">
+                        <h3 class="text-3xl sm:text-5xl text-[#f15e50]">03</h3>
+                        <h3 class="text-xl sm:text-2xl text-[#00001a]">
+                            The Growth of Gamming
+                        </h3>
+                        <p class="sm:text-md text-sm text-[#c5c6ce]">
+                            How the pandemic sparked new oportunities
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="index.js"></script>
+    </body>
+</html>
